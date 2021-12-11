@@ -1,7 +1,13 @@
 {
+  "playerPATH": "assets/p.PNG",
   "menuElements": 1,
   "pathsArrMenu": [ "assets/m.jpg" ],
   "gameElements": 1,
   "pathsArrGame": [ "assets/map.jpg" ],
-  "mapObjects": [[90,90,100,100],[200,200,100,100]]
+  "mapObjects": [
+    [ 90, 90, 100, 100 ],
+    [ 200, 200, 100, 100 ],
+    [ 400, 400, 100, 100 ],
+    [ 500, 800, 100, 100 ]
+  ]
 }

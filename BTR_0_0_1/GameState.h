@@ -11,7 +11,7 @@ public: // VARIABLES
 
 
 public: // METHODS
-
+    void createPlayer();
 
 protected: // VARIABLES 
 
@@ -26,6 +26,8 @@ protected: // METHODS
     int handleBTNpresseing() override;
 private: // VARIABLES
     sf::RenderWindow* window;
+    sf::Texture playerTX;
+    sf::Sprite playerSprite;
 
 private: // METHODS
 
