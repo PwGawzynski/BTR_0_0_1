@@ -31,15 +31,16 @@ void GameState::update()
 	/* GET NEXT MOVE OF PLAYER */
 	sf::Vector2f movement = sf::Vector2f(0.f,0.f);
 
+	float velocity = 300.f;
 	/* PREDICTING */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		movement.x -= 10.f;
+		movement.x -= velocity * this->dt;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		movement.x +=10.f;
+		movement.x +=velocity * this->dt;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		movement.y +=10.f;
+		movement.y -=velocity * this->dt;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		movement.y -=10.f;
+		movement.y +=velocity * this->dt;
 
 	sf::FloatRect playerNext = this->playerSprite.getGlobalBounds();
 	playerNext.left += movement.x;
@@ -54,8 +55,8 @@ void GameState::update()
 		{
 			// tutaj akcje z kolizjami zwiazane
 			std::cout << "COLISION" << std::endl;
-			movement.x *= (-2.7);
-			movement.y *= (-2.7);
+			movement.x *= (-0.1);
+			movement.y *= (-0.1);
 			std::cout << movement.x << std::endl;
 			this->movePlayer(movement);
 			return;
@@ -108,4 +109,9 @@ int GameState::handleBTNpresseing()
 	for (sf::RectangleShape shape : this->mapObjects) {
 		if (shape.getGlobalBounds().contains(this->mousePositionView)) return 3;
 	}
+}
+
+void GameState::updateDT()
+{
+	this->dt = this->dtClock.restart().asSeconds();
 }

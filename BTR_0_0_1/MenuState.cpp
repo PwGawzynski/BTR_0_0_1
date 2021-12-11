@@ -79,3 +79,8 @@ int MenuState::handleBTNpresseing()
 void MenuState::movePlayer(sf::Vector2f delta)
 {
 }
+
+void MenuState::updateDT()
+{
+	this->dt = this->dtClock.restart().asSeconds();
+}

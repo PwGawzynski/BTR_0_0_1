@@ -8,6 +8,7 @@ public://CONSTRUCTOR AND DESTRUCTOR
     GameState();
     GameState(sf::RenderWindow* target);
     ~GameState() override;
+    void updateDT();
     
 public: // VARIABLES
     void movePlayer(sf::Vector2f delta);
@@ -32,7 +33,7 @@ private: // VARIABLES
     
 
 private: // METHODS
-
+    
 
 };
 

@@ -123,6 +123,7 @@ void Engine::run()
 {
 	while (this->window->isOpen() && !this->statesStack.empty())
 	{
+		this->statesStack.top()->updateDT();
 		this->render();
 		this->update();
 	}

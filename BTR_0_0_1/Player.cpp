@@ -20,6 +20,7 @@ Player::Player()
 	sf::Sprite player;
 	player.setTexture(this->playerTX);
 	this->playerSprite = player;
+	this->playerSprite.setPosition(sf::Vector2f(500.f, 500.f));
 }
 
 Player::~Player()

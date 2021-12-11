@@ -15,6 +15,8 @@ public:/*VARIABLES*/
 	std::vector<std::string> paths;
 	sf::Vector2f mousePositionView;
 	sf::Vector2i mousePositionWindow;
+	sf::Clock dtClock;
+	float dt;
 
 
 public:/*METHODS*/
@@ -26,6 +28,7 @@ public:/*METHODS*/
 	virtual void createBTNs() = 0;
 	virtual int handleBTNpresseing() = 0;
 	virtual void movePlayer(sf::Vector2f delta) = 0;
+	virtual void updateDT() = 0;
 public:/*VARIABLES*/
 
 
