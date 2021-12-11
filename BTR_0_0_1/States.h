@@ -25,6 +25,7 @@ public:/*METHODS*/
 	virtual void updateMouse() = 0;
 	virtual void createBTNs() = 0;
 	virtual int handleBTNpresseing() = 0;
+	virtual void movePlayer(sf::Vector2f delta) = 0;
 public:/*VARIABLES*/
 
 

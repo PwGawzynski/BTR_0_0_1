@@ -81,6 +81,24 @@ void Engine::updateSFMLEvents()
 			std::cout << "CLICK OCCURED" << "\n";
 			this->checkClicking();
 			break;
+		case sf::Event::KeyPressed:
+			/*if (this->ev.key.code == sf::Keyboard::Right)
+			{
+				this->statesStack.top()->movePlayer(sf::Vector2f(10.f, 0.f));
+			}
+			else if (this->ev.key.code == sf::Keyboard::Left)
+			{
+				this->statesStack.top()->movePlayer(sf::Vector2f(-10.f, 0.f));
+			}
+			else if (this->ev.key.code == sf::Keyboard::Down)
+			{
+				this->statesStack.top()->movePlayer(sf::Vector2f(0.f, -10.f));
+			}
+			else if (this->ev.key.code == sf::Keyboard::Up)
+			{
+				this->statesStack.top()->movePlayer(sf::Vector2f(0.f, 10.f));
+			}*/
+		break;
 		default:
 			break;
 		}

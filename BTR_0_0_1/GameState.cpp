@@ -20,11 +20,50 @@ GameState::~GameState()
 	std::cout << "DECONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 }
 
+void GameState::movePlayer(sf::Vector2f delta)
+{
+	this->playerSprite.move(delta);
+}
 
 
 void GameState::update()
 {
+	/* GET NEXT MOVE OF PLAYER */
+	sf::Vector2f movement = sf::Vector2f(0.f,0.f);
 
+	/* PREDICTING */
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		movement.x -= 10.f;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		movement.x +=10.f;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		movement.y +=10.f;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		movement.y -=10.f;
+
+	sf::FloatRect playerNext = this->playerSprite.getGlobalBounds();
+	playerNext.left += movement.x;
+	playerNext.top += movement.y;
+
+	for (auto& shape : this->mapObjects)
+	{
+		sf::FloatRect obstacle = shape.getGlobalBounds();
+		
+
+		if (obstacle.intersects(playerNext))
+		{
+			// tutaj akcje z kolizjami zwiazane
+			std::cout << "COLISION" << std::endl;
+			movement.x *= (-2.7);
+			movement.y *= (-2.7);
+			std::cout << movement.x << std::endl;
+			this->movePlayer(movement);
+			return;
+		}
+
+	}
+	if(movement.y || movement.x)
+	this->movePlayer(movement);
 }
 
 void GameState::render()

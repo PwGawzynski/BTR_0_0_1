@@ -8,5 +8,6 @@ public:
 protected:
 	sf::Texture playerTX;
 	sf::Sprite playerSprite;
+
 };
 

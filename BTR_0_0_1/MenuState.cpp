@@ -75,3 +75,7 @@ int MenuState::handleBTNpresseing()
 	if (this->exitBTN.getGlobalBounds().contains(this->mousePositionView))
 		return 2;
 }
+
+void MenuState::movePlayer(sf::Vector2f delta)
+{
+}

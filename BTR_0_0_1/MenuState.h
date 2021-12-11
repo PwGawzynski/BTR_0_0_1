@@ -20,6 +20,7 @@ protected:/*METHODS*/
 	void createBTNs() override;
 	void updateMouse() override;
 	int handleBTNpresseing() override;
+	void movePlayer(sf::Vector2f delta) override;
 
 
 private:/*VARIABLES*/
