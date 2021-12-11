@@ -12,7 +12,7 @@ GameState::GameState(sf::RenderWindow* target)
 	std::cout << "OVERLADED CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 	this->window = target;
 	this->createBTNs();
-	this->createPlayer();
+	
 }
 
 GameState::~GameState()
@@ -20,23 +20,7 @@ GameState::~GameState()
 	std::cout << "DECONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 }
 
-void GameState::createPlayer()
-{
-	std::string playerP;
 
-
-	std::ifstream d("config/assetsConfig.json");
-	nlohmann::json j = j.parse(d);
-	j.at("playerPATH").get_to(playerP);
-
-
-	sf::Texture tmp;
-	tmp.loadFromFile(playerP);
-	this->playerTX = tmp;
-	sf::Sprite player;
-	player.setTexture(this->playerTX);
-	this->playerSprite = player;
-}
 
 void GameState::update()
 {

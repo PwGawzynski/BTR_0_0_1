@@ -1,7 +1,8 @@
 #pragma once
 #include "Map.h"
+#include "Player.h"
 class GameState :
-    protected States, protected Map
+    protected States, protected Map, protected Player
 {
 public://CONSTRUCTOR AND DESTRUCTOR 
     GameState();
@@ -11,7 +12,7 @@ public: // VARIABLES
 
 
 public: // METHODS
-    void createPlayer();
+    
 
 protected: // VARIABLES 
 
@@ -26,8 +27,7 @@ protected: // METHODS
     int handleBTNpresseing() override;
 private: // VARIABLES
     sf::RenderWindow* window;
-    sf::Texture playerTX;
-    sf::Sprite playerSprite;
+    
 
 private: // METHODS
 
