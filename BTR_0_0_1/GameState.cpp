@@ -55,8 +55,8 @@ void GameState::update()
 		{
 			// tutaj akcje z kolizjami zwiazane
 			std::cout << "COLISION" << std::endl;
-			movement.x *= (-0.1);
-			movement.y *= (-0.1);
+			movement.x *= (0.0);
+			movement.y *= (0.0);
 			std::cout << movement.x << std::endl;
 			this->movePlayer(movement);
 			return;
