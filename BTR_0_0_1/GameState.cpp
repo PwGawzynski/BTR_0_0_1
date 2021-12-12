@@ -7,7 +7,7 @@ GameState::GameState()
 }
 
 GameState::GameState(sf::RenderWindow* target)
-	:States(2), Map()
+	:States(2), Map(0)
 {
 	std::cout << "OVERLADED CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 	this->window = target;
@@ -45,6 +45,7 @@ void GameState::update()
 	sf::FloatRect playerNext = this->playerSprite.getGlobalBounds();
 	playerNext.left += movement.x;
 	playerNext.top += movement.y;
+	int shape_nr = 0;
 
 	for (auto& shape : this->mapObjects)
 	{
@@ -55,16 +56,37 @@ void GameState::update()
 		{
 			// tutaj akcje z kolizjami zwiazane
 			std::cout << "COLISION" << std::endl;
+			/* CHEEK IF COLISION WITH WALL*/
+			if (this->obiectsINFO[shape_nr][8])
+			{
+				std::cout << "WALL" << std::endl;
+				this->imgStart = this->obiectsINFO[shape_nr][9];
+				this->renderStateNO();
+				this->playerSprite.setPosition(sf::Vector2f(
+					(float)this->obiectsINFO[shape_nr][10],
+					(float)this->obiectsINFO[shape_nr][11]
+				));
+
+				// SWITH to render obiect of new map
+				this->mapNO = obiectsINFO[shape_nr][9];
+				while (!this->mapObjects.empty())
+					this->mapObjects.pop_back();
+				this->updateMap();
+
+				// THIS CLEARS VECTOR FROM OLD BMT 
+				this->textures.pop_front();
+			}
 			movement.x *= (0.0);
 			movement.y *= (0.0);
 			std::cout << movement.x << std::endl;
 			this->movePlayer(movement);
 			return;
 		}
-
+		shape_nr++;
 	}
 	if(movement.y || movement.x)
 	this->movePlayer(movement);
+
 }
 
 void GameState::render()

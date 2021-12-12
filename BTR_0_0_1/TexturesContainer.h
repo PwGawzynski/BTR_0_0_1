@@ -19,9 +19,11 @@ class TexturesContainer
 public:
 	TexturesContainer();
 	TexturesContainer(int);
+	void renderStateNO();
 	~TexturesContainer();
 protected:
 	int imagesEnd;
+	int imgStart;
 	std::vector<std::string> paths;
 	std::list<sf::Texture> textures;
 	std::list<sf::Sprite> spritees;
