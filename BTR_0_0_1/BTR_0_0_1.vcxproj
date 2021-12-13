@@ -72,23 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\pgawz\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\pgawz\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\grzes\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\grzes\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\pgawz\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\pgawz\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\grzes\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\grzes\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\pgawz\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\pgawz\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\grzes\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\grzes\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\pgawz\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\pgawz\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\grzes\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\grzes\source\repos\BTR_0_0_1\BTR_0_0_1\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
