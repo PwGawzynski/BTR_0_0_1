@@ -23,6 +23,7 @@ GameState::~GameState()
 void GameState::movePlayer(sf::Vector2f delta)
 {
 	this->playerSprite.move(delta);
+	this->nextFrame();
 }
 
 
@@ -67,6 +68,8 @@ void GameState::update()
 					(float)this->obiectsINFO[shape_nr][11]
 				));
 
+				// TUTAJ ZROBIC WYKRYWANIE Z OBIEKTAMI 
+
 				// SWITH to render obiect of new map
 				this->mapNO = obiectsINFO[shape_nr][9];
 				while (!this->mapObjects.empty())
@@ -86,7 +89,6 @@ void GameState::update()
 	}
 	if(movement.y || movement.x)
 	this->movePlayer(movement);
-
 }
 
 void GameState::render()
