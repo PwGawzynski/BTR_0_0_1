@@ -53,7 +53,7 @@ void Map::updateMap()
 		sf::RectangleShape tmpShape;
 		tmpShape.setPosition(sf::Vector2f(tab[0], tab[1]));
 		tmpShape.setSize(sf::Vector2f(tab[2], tab[3]));
-		tmpShape.setFillColor(sf::Color(tab[5], tab[6], tab[7], 0)); // ostatnia wartosc opacity 
+		tmpShape.setFillColor(sf::Color(tab[5], tab[6], tab[7], 100)); // ostatnia wartosc opacity 
 		this->mapObjects.push_back(tmpShape);
 	}
 }
