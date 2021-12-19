@@ -14,7 +14,7 @@ TexturesContainer::TexturesContainer(int state)
 	std::ifstream d("config/assetsConfig.json");
 	json j = j.parse(d);
 
-	this->updateCTR(state);
+	this->updateCTR(state); 
 
 	this->renderStateNO();
 }

@@ -57,3 +57,17 @@ void Map::updateMap()
 		this->mapObjects.push_back(tmpShape);
 	}
 }
+
+void Map::updateInterface()
+{
+	std::ifstream i("config/assetsConfig.json");
+	json j = j.parse(i);
+	j.at("InterfaceObiectsInfo").get_to(this->InterfaceObiectsINFO);
+
+	for(std::string path : this->InterfaceObiectsINFO)
+	{
+		sf::Texture tmp;
+		tmp.loadFromFile(path);
+		this->interfaceObjects.push_back(tmp);
+	}
+}

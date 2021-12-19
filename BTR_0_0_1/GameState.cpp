@@ -12,6 +12,7 @@ GameState::GameState(sf::RenderWindow* target)
 	std::cout << "OVERLADED CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 	this->window = target;
 	this->createBTNs();
+	this->renderSelfStateObject();
 	
 }
 
@@ -60,7 +61,7 @@ void GameState::update()
 			/* CHEEK IF COLISION WITH WALL*/
 			if (this->obiectsINFO[shape_nr][8])
 			{
-				std::cout << "WALL" << std::endl;
+				std::cout << "DOOR" << std::endl;
 				this->imgStart = this->obiectsINFO[shape_nr][9];
 				this->renderStateNO();
 				this->playerSprite.setPosition(sf::Vector2f(
@@ -93,6 +94,7 @@ void GameState::update()
 
 void GameState::render()
 {
+	
 	this->renderSprites();
 }
 
@@ -111,11 +113,18 @@ void GameState::renderSprites()
 	/* DRAWING PLAYER SECTION THIS HAVE TO BE AT LEAST, OR PLAYER WOULD GO UNDER SOME SHAPES, SOMETIMES WE WOULD
 	 * LIKE TO HANGE IT TO LET PLAYER BE COVER BY SOMETHING*/
 	this->window->draw(this->playerSprite);
+
+	for(sf::Texture sorce : this->interfaceObjects)
+	{
+		sf::Sprite TS;
+		TS.setTexture(sorce);
+		this->window->draw(TS);
+	}
 }
 
 void GameState::renderSelfStateObject()
 {
-
+	this->updateInterface();
 }
 
 void GameState::createBTNs()
