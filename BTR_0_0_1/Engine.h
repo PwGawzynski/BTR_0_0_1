@@ -14,7 +14,7 @@ public:/*METHODS*/
 	void update();
 	void render();
 	void run();
-
+	
 public:/*VARIABLES*/
 
 
@@ -24,6 +24,7 @@ private:/*VARIABLES*/
 	sf::Image icon;
 	sf::RenderWindow* window;
 	std::stack<States*> statesStack;
+	
 private:/*METHODS*/
 	void initWindow();
 	void initStack();

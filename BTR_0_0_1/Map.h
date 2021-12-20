@@ -10,6 +10,7 @@ protected:
 
 	void updateMap();
 	void updateInterface();
+	void updateEntity();
 protected:
 	std::vector<std::vector<int>> obiectsINFO;
 	std::vector<std::string> InterfaceObiectsINFO;

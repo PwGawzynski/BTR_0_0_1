@@ -1,50 +1,49 @@
+#include "MiniGame1.h"
 #include "GameState.h"
 
-
-
-GameState::GameState()
+MiniGame1::MiniGame1()
 {
 	std::cout << "CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 
 }
 
-GameState::GameState(sf::RenderWindow* target)
-	:States(2), Map(0)
+MiniGame1::MiniGame1(sf::RenderWindow* target)
+	:States(3), Map(0)
 {
 	std::cout << "OVERLADED CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 	this->window = target;
 	this->createBTNs();
 	this->renderSelfStateObject();
-	
+
 }
 
-GameState::~GameState()
+MiniGame1::~MiniGame1()
 {
 	std::cout << "DECONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 }
 
-void GameState::movePlayer(sf::Vector2f delta)
+void MiniGame1::movePlayer(sf::Vector2f delta)
 {
 	this->playerSprite.move(delta);
 	this->nextFrame();
 }
 
 
-void GameState::update()
+void MiniGame1::update()
 {
 	/* GET NEXT MOVE OF PLAYER */
-	sf::Vector2f movement = sf::Vector2f(0.f,0.f);
+	sf::Vector2f movement = sf::Vector2f(0.f, 0.f);
 
 	float velocity = 300.f;
 	/* PREDICTING */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		movement.x -= velocity * this->dt;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		movement.x +=velocity * this->dt;
+		movement.x += velocity * this->dt;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		movement.y -=velocity * this->dt;
+		movement.y -= velocity * this->dt;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		movement.y +=velocity * this->dt;
+		movement.y += velocity * this->dt;
 
 	sf::FloatRect playerNext = this->playerSprite.getGlobalBounds();
 	playerNext.left += movement.x;
@@ -54,14 +53,14 @@ void GameState::update()
 	for (auto& shape : this->mapObjects)
 	{
 		sf::FloatRect obstacle = shape.getGlobalBounds();
-		
+
 
 		if (obstacle.intersects(playerNext))
 		{
 			// tutaj akcje z kolizjami zwiazane
 			std::cout << "COLISION" << std::endl;
 			/* CHEEK IF COLISION WITH WALL*/
-			if (this->obiectsINFO[shape_nr][8]==1)
+			if (this->obiectsINFO[shape_nr][8])
 			{
 				std::cout << "DOOR" << std::endl;
 				this->imgStart = this->obiectsINFO[shape_nr][9];
@@ -82,11 +81,6 @@ void GameState::update()
 				// THIS CLEARS VECTOR FROM OLD BMT 
 				this->textures.pop_front();
 			}
-			if (this->obiectsINFO[shape_nr][8]==2)
-			{
-				std::cout << "ENTITY" << std::endl;
-			}
-
 			movement.x *= (0.0);
 			movement.y *= (0.0);
 			std::cout << movement.x << std::endl;
@@ -95,17 +89,17 @@ void GameState::update()
 		}
 		shape_nr++;
 	}
-	if(movement.y || movement.x)
-	this->movePlayer(movement);
+	if (movement.y || movement.x)
+		this->movePlayer(movement);
 }
 
-void GameState::render()
+void MiniGame1::render()
 {
-	
+
 	this->renderSprites();
 }
 
-void GameState::renderSprites()
+void MiniGame1::renderSprites()
 {
 	for (sf::Texture sorce : this->textures) {
 		sf::Sprite TS;
@@ -121,7 +115,7 @@ void GameState::renderSprites()
 	 * LIKE TO HANGE IT TO LET PLAYER BE COVER BY SOMETHING*/
 	this->window->draw(this->playerSprite);
 
-	for(sf::Texture sorce : this->interfaceObjects)
+	for (sf::Texture sorce : this->interfaceObjects)
 	{
 		sf::Sprite TS;
 		TS.setTexture(sorce);
@@ -129,29 +123,29 @@ void GameState::renderSprites()
 	}
 }
 
-void GameState::renderSelfStateObject()
+void MiniGame1::renderSelfStateObject()
 {
 	this->updateInterface();
 }
 
-void GameState::createBTNs()
+void MiniGame1::createBTNs()
 {
 }
 
-void GameState::updateMouse()
+void MiniGame1::updateMouse()
 {
 	this->mousePositionWindow = sf::Mouse::getPosition(*this->window);
 	this->mousePositionView = this->window->mapPixelToCoords(this->mousePositionWindow);
 }
 
-int GameState::handleBTNpresseing()
+int MiniGame1::handleBTNpresseing()
 {
 	for (sf::RectangleShape shape : this->mapObjects) {
 		if (shape.getGlobalBounds().contains(this->mousePositionView)) return 3;
 	}
 }
 
-void GameState::updateDT()
+void MiniGame1::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();
 }

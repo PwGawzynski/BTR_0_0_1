@@ -1,22 +1,21 @@
 #pragma once
 #include "Map.h"
 #include "Player.h"
-
-class GameState :
+    class MiniGame1 :
     protected States, protected Map, protected Player
 {
 public://CONSTRUCTOR AND DESTRUCTOR 
-    GameState();
-    GameState(sf::RenderWindow* target);
-    ~GameState() override;
+    MiniGame1();
+    MiniGame1(sf::RenderWindow* target);
+    ~MiniGame1() override;
     void updateDT();
-    
+
 public: // VARIABLES
     void movePlayer(sf::Vector2f delta);
 
 public: // METHODS
     void movePlayer();
-    
+
 
 protected: // VARIABLES 
 
@@ -31,10 +30,9 @@ protected: // METHODS
     int handleBTNpresseing() override;
 private: // VARIABLES
     sf::RenderWindow* window;
-    
+
 
 private: // METHODS
-    
+
 
 };
-
