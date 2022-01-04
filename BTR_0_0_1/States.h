@@ -20,7 +20,7 @@ public:/*VARIABLES*/
 
 
 public:/*METHODS*/
-	virtual void update() = 0;
+	virtual int update() = 0;
 	virtual void render() = 0;
 	virtual void renderSelfStateObject() = 0;
 	virtual void renderSprites() = 0;
@@ -30,7 +30,7 @@ public:/*METHODS*/
 	virtual void movePlayer(sf::Vector2f delta) = 0;
 	virtual void updateDT() = 0;
 public:/*VARIABLES*/
-
+	int last_clicked_flag;
 
 private:/*METHODS*/
 

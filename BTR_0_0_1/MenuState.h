@@ -13,7 +13,7 @@ public:/*VARIABLES*/
 
 
 protected:/*METHODS*/
-	void update() override;
+	int update() override;
 	void render() override;
 	void renderSprites() override;
 	void renderSelfStateObject() override;

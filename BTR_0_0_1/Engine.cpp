@@ -34,7 +34,8 @@ void Engine::renderIcon()
 
 void Engine::checkClicking()
 {
-	switch (this->statesStack.top()->handleBTNpresseing())
+	int val_ret = this->statesStack.top()->handleBTNpresseing();
+	switch (val_ret)
 	{
 	case 1:
 		std::cout << "PLAY" << std::endl;
@@ -53,6 +54,14 @@ void Engine::checkClicking()
 	case 3:
 		std::cout << "CLICK ON SHAPE" << std::endl;
 		break;
+	case 4:
+		std::cout << "CLICK ON SHAPE MINIGAME_KOMP" << std::endl;
+		if (val_ret == this->statesStack.top()->last_clicked_flag)
+		{
+			this->statesStack.top()->last_clicked_flag = 0;
+			std::cout << "match" << std::endl;
+		}
+		// tutaj mozna zrobic do rysowania kabli tylko trzeba zwracac jakis nz z chandle
 	default:
 		break;
 	}
@@ -105,11 +114,17 @@ void Engine::updateSFMLEvents()
 	}
 }
 
-void Engine::update()
+int Engine::update()
 {
-	this->statesStack.top()->update();
+	int a = 0;
+	a = this->statesStack.top()->update();
+	if (a) {
+		this->statesStack.push(new MiniGame1(this->window));
+		this->render();
+		return 0;
+	};
 	this->updateSFMLEvents();
-
+	
 }
 
 void Engine::render()

@@ -21,7 +21,7 @@ protected: // VARIABLES
 
 
 protected: // METHODS
-    void update() override;
+    int update() override;
     void render() override;
     void renderSprites() override;
     void renderSelfStateObject() override;
@@ -30,7 +30,7 @@ protected: // METHODS
     int handleBTNpresseing() override;
 private: // VARIABLES
     sf::RenderWindow* window;
-
+   
 
 private: // METHODS
 

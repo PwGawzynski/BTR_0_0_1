@@ -8,10 +8,12 @@ MiniGame1::MiniGame1()
 }
 
 MiniGame1::MiniGame1(sf::RenderWindow* target)
-	:States(3), Map(0)
+// map 6 bo w mapobject6 w json damy od kabli 
+	:States(3), Map(6)
 {
 	std::cout << "OVERLADED CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 	this->window = target;
+	this->last_clicked_flag = 0;
 	this->createBTNs();
 	this->renderSelfStateObject();
 
@@ -29,7 +31,7 @@ void MiniGame1::movePlayer(sf::Vector2f delta)
 }
 
 
-void MiniGame1::update()
+int MiniGame1::update()
 {
 	/* GET NEXT MOVE OF PLAYER */
 	sf::Vector2f movement = sf::Vector2f(0.f, 0.f);
@@ -85,17 +87,17 @@ void MiniGame1::update()
 			movement.y *= (0.0);
 			std::cout << movement.x << std::endl;
 			this->movePlayer(movement);
-			return;
+			return 0;
 		}
 		shape_nr++;
 	}
 	if (movement.y || movement.x)
 		this->movePlayer(movement);
+	return 0;
 }
 
 void MiniGame1::render()
 {
-
 	this->renderSprites();
 }
 
@@ -140,9 +142,32 @@ void MiniGame1::updateMouse()
 
 int MiniGame1::handleBTNpresseing()
 {
+	int ctr = 0;
+
 	for (sf::RectangleShape shape : this->mapObjects) {
-		if (shape.getGlobalBounds().contains(this->mousePositionView)) return 3;
+		// jak ma -1 to mozna klikac
+		if(this->obiectsINFO[ctr][8] == -1)
+		{
+			if (shape.getGlobalBounds().contains(this->mousePositionView))
+			{
+				int new_clicked = this->obiectsINFO[ctr][9];
+				std::cout << this->last_clicked_flag << "  " << new_clicked << std::endl;
+				if (!this->last_clicked_flag) this->last_clicked_flag = new_clicked;
+				else if (new_clicked == this->last_clicked_flag)
+				{
+					std::cout<<" rowne " << this->last_clicked_flag << "   " << new_clicked << std::endl;
+					std::cout << "CLICK : " << this->last_clicked_flag << std::endl;
+					//tu tworzenie kabli i push do listy z obiektami do rysowania do koloru mozna sie dobrac przez object info
+					return this->last_clicked_flag;
+				}
+				
+			}
+		}
+		return -2;
+		ctr++;
 	}
+
+	return -1;
 }
 
 void MiniGame1::updateDT()

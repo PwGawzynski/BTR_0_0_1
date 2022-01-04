@@ -20,9 +20,9 @@ MenuState::~MenuState()
 
 }
 
-void MenuState::update()
+int MenuState::update()
 {
-
+	return 0;
 }
 
 void MenuState::render()

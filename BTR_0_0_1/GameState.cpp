@@ -30,7 +30,7 @@ void GameState::movePlayer(sf::Vector2f delta)
 }
 
 
-void GameState::update()
+int GameState::update()
 {
 	/* GET NEXT MOVE OF PLAYER */
 	sf::Vector2f movement = sf::Vector2f(0.f,0.f);
@@ -84,19 +84,29 @@ void GameState::update()
 			}
 			else if (this->obiectsINFO[shape_nr][8]==2)
 			{
-				std::cout << "ENTITY" << std::endl;
+				std::cout << "ROBERT" << std::endl;
+			}
+			else if (this->obiectsINFO[shape_nr][8] == 3)
+			{
+				std::cout << "PUSZKA" << std::endl;
+			}
+			else if (this->obiectsINFO[shape_nr][8] == 4)
+			{
+				std::cout << "KOMP" << std::endl;
+				return 1;
 			}
 
 			movement.x *= (0.0);
 			movement.y *= (0.0);
 			std::cout << movement.x << std::endl;
 			this->movePlayer(movement);
-			return;
+			return 0;
 		}
 		shape_nr++;
 	}
 	if(movement.y || movement.x)
 	this->movePlayer(movement);
+	return 0;
 }
 
 void GameState::render()

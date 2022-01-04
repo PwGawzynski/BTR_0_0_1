@@ -1,9 +1,10 @@
 #pragma once
 //#include "MenuState.h"
 #include "GameState.h"
+#include "MiniGame1.h"
 
 class Engine
-	:protected MenuState, protected GameState
+	:protected MenuState, protected GameState, protected MiniGame1
 {
 public:/*CONSTRUCTOR DESTRUCTOR*/
 	Engine();
@@ -11,7 +12,7 @@ public:/*CONSTRUCTOR DESTRUCTOR*/
 
 public:/*METHODS*/
 	void updateSFMLEvents();
-	void update();
+	int update();
 	void render();
 	void run();
 	
