@@ -82,7 +82,7 @@ void GameState::update()
 				// THIS CLEARS VECTOR FROM OLD BMT 
 				this->textures.pop_front();
 			}
-			if (this->obiectsINFO[shape_nr][8]==2)
+			else if (this->obiectsINFO[shape_nr][8]==2)
 			{
 				std::cout << "ENTITY" << std::endl;
 			}
