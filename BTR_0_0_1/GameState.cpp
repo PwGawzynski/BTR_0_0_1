@@ -88,12 +88,14 @@ int GameState::update()
 			}
 			else if (this->obiectsINFO[shape_nr][8] == 3)
 			{
+				
 				std::cout << "PUSZKA" << std::endl;
+				return 1;
 			}
 			else if (this->obiectsINFO[shape_nr][8] == 4)
 			{
 				std::cout << "KOMP" << std::endl;
-				return 1;
+				return 2;
 			}
 
 			movement.x *= (0.0);

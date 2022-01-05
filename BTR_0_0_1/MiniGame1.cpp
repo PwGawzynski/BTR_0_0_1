@@ -41,66 +41,7 @@ void MiniGame1::update_interface(int a)
 
 int MiniGame1::update()
 {
-	/* GET NEXT MOVE OF PLAYER */
-	sf::Vector2f movement = sf::Vector2f(0.f, 0.f);
-
-	float velocity = 300.f;
-	/* PREDICTING */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		movement.x -= velocity * this->dt;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		movement.x += velocity * this->dt;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		movement.y -= velocity * this->dt;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		movement.y += velocity * this->dt;
-
-	sf::FloatRect playerNext = this->playerSprite.getGlobalBounds();
-	playerNext.left += movement.x;
-	playerNext.top += movement.y;
-	int shape_nr = 0;
-
-	for (auto& shape : this->mapObjects)
-	{
-		sf::FloatRect obstacle = shape.getGlobalBounds();
-
-
-		if (obstacle.intersects(playerNext))
-		{
-			// tutaj akcje z kolizjami zwiazane
-			std::cout << "COLISION" << std::endl;
-			/* CHEEK IF COLISION WITH WALL*/
-			if (this->obiectsINFO[shape_nr][8])
-			{
-				std::cout << "DOOR" << std::endl;
-				this->imgStart = this->obiectsINFO[shape_nr][9];
-				this->renderStateNO();
-				this->playerSprite.setPosition(sf::Vector2f(
-					(float)this->obiectsINFO[shape_nr][10],
-					(float)this->obiectsINFO[shape_nr][11]
-				));
-
-				// TUTAJ ZROBIC WYKRYWANIE Z OBIEKTAMI 
-
-				// SWITH to render obiect of new map
-				this->mapNO = obiectsINFO[shape_nr][9];
-				while (!this->mapObjects.empty())
-					this->mapObjects.pop_back();
-				this->updateMap();
-
-				// THIS CLEARS VECTOR FROM OLD BMT 
-				this->textures.pop_front();
-			}
-			movement.x *= (0.0);
-			movement.y *= (0.0);
-			std::cout << movement.x << std::endl;
-			this->movePlayer(movement);
-			return 0;
-		}
-		shape_nr++;
-	}
-	if (movement.y || movement.x)
-		this->movePlayer(movement);
+	
 	return 0;
 }
 
@@ -121,9 +62,7 @@ void MiniGame1::renderSprites()
 	}
 
 
-	/* DRAWING PLAYER SECTION THIS HAVE TO BE AT LEAST, OR PLAYER WOULD GO UNDER SOME SHAPES, SOMETIMES WE WOULD
-	 * LIKE TO HANGE IT TO LET PLAYER BE COVER BY SOMETHING*/
-	this->window->draw(this->playerSprite);
+	
 
 	for (sf::Texture sorce : this->interfaceObjects)
 	{
@@ -173,7 +112,15 @@ int MiniGame1::handleBTNpresseing()
 					{
 						if (i == this->last_clicked_flag)
 						{
-							texture.setFillColor(sf::Color(255, 255, 255));
+							// tu if na kolory
+							if (i == 8)
+							texture.setFillColor(sf::Color(0, 0, 0));
+							else if (i == 9)
+								texture.setFillColor(sf::Color(0, 255, 0));
+							else if (i == 10)
+								texture.setFillColor(sf::Color(255, 0, 0));
+							else if (i == 11)
+								texture.setFillColor(sf::Color(0, 0, 255));
 						}
 						i++;
 					}

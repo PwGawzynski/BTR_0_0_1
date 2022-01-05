@@ -18,13 +18,15 @@ public:/*METHODS*/
 	
 public:/*VARIABLES*/
 
-
+	int minigame_number;
+	int accomplished;
 private:/*VARIABLES*/
 	sf::VideoMode video;
 	sf::Event ev;
 	sf::Image icon;
 	sf::RenderWindow* window;
 	std::stack<States*> statesStack;
+	
 	
 private:/*METHODS*/
 	void initWindow();

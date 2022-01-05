@@ -2,6 +2,8 @@
 
 Engine::Engine()
 {
+	this->minigame_number = 0;
+	this->accomplished = 0;
 	this->initWindow();
 	this->renderIcon();
 	this->initStack();
@@ -63,6 +65,7 @@ void Engine::checkClicking()
 			{
 				this->statesStack.pop();
 				this->statesStack.top()->pop_interface_states();
+				this->accomplished++;
 			}
 			this->statesStack.top()->renderSelfStateObject();
 			std::cout << "match" << std::endl;
@@ -122,13 +125,18 @@ void Engine::updateSFMLEvents()
 
 int Engine::update()
 {
-	int a = 0;
-	a = this->statesStack.top()->update();
-	if (a) {
+	// tu zmienianie minigier
+	this->minigame_number = this->statesStack.top()->update();
+	if (this->accomplished == 1 && this->minigame_number == 2) {
 		this->statesStack.push(new MiniGame1(this->window));
 		this->render();
 		return 0;
-	};
+	}
+	else if (this->accomplished == 0 && this->minigame_number == 1)
+	{
+		this->statesStack.top()->pop_interface_states();
+		this->accomplished++;
+	}
 	this->updateSFMLEvents();
 	
 }
