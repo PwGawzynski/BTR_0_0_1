@@ -14,6 +14,7 @@ MiniGame1::MiniGame1(sf::RenderWindow* target)
 	std::cout << "OVERLADED CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 	this->window = target;
 	this->last_clicked_flag = 0;
+	this->miniGame1Counter = 0;
 	this->createBTNs();
 	this->renderSelfStateObject();
 
@@ -30,6 +31,11 @@ void MiniGame1::movePlayer(sf::Vector2f delta)
 	this->nextFrame();
 }
 
+
+void MiniGame1::update_interface(int a)
+{
+	this->InterfaceObiectsINFO.push_back("assets/interface1.PNG");
+}
 
 int MiniGame1::update()
 {
@@ -127,7 +133,12 @@ void MiniGame1::renderSprites()
 
 void MiniGame1::renderSelfStateObject()
 {
-	this->updateInterface();
+	if(this->miniGame1Counter == 0)
+	{
+		this->updateInterface();
+		std::cout << "change" << std::endl;
+
+	}
 }
 
 void MiniGame1::createBTNs()
@@ -146,24 +157,39 @@ int MiniGame1::handleBTNpresseing()
 
 	for (sf::RectangleShape shape : this->mapObjects) {
 		// jak ma -1 to mozna klikac
-		if(this->obiectsINFO[ctr][8] == -1)
+		if(this->obiectsINFO[ctr][8] == 10)
 		{
+			std::cout << "jest -1" << ctr << std::endl;
 			if (shape.getGlobalBounds().contains(this->mousePositionView))
 			{
+				std::cout << "shape click" << std::endl;
 				int new_clicked = this->obiectsINFO[ctr][9];
 				std::cout << this->last_clicked_flag << "  " << new_clicked << std::endl;
 				if (!this->last_clicked_flag) this->last_clicked_flag = new_clicked;
 				else if (new_clicked == this->last_clicked_flag)
 				{
+					/*
+					 * w tym JSON te 2 tablice musza byc 
+					 */
+					int i = 0;
+					for (sf::RectangleShape &texture : this->mapObjects)
+					{
+						if (i == this->last_clicked_flag)
+						{
+							texture.setFillColor(sf::Color(255, 255, 255));
+						}
+						i++;
+					}
+					// to last clicked ma odpowiadc nr tablicy w mapOBj6 ktora opisuje kabel  loczac od 0 
 					std::cout<<" rowne " << this->last_clicked_flag << "   " << new_clicked << std::endl;
 					std::cout << "CLICK : " << this->last_clicked_flag << std::endl;
 					//tu tworzenie kabli i push do listy z obiektami do rysowania do koloru mozna sie dobrac przez object info
+
 					return this->last_clicked_flag;
 				}
 				
 			}
 		}
-		return -2;
 		ctr++;
 	}
 

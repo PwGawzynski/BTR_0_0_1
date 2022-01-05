@@ -31,6 +31,8 @@ public:/*METHODS*/
 	virtual void updateDT() = 0;
 public:/*VARIABLES*/
 	int last_clicked_flag;
+	int miniGame1Counter;
+
 
 private:/*METHODS*/
 

@@ -15,6 +15,7 @@ public: // VARIABLES
 
 public: // METHODS
     void movePlayer();
+    void update_interface(int);
 
 
 protected: // VARIABLES 

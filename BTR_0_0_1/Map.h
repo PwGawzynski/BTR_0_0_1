@@ -11,9 +11,11 @@ protected:
 	void updateMap();
 	void updateInterface();
 	void updateEntity();
+public:
+	std::vector<std::string> InterfaceObiectsINFO;
 protected:
 	std::vector<std::vector<int>> obiectsINFO;
-	std::vector<std::string> InterfaceObiectsINFO;
+	
 	std::list<sf::RectangleShape> mapObjects;
 	std::list<sf::Texture> interfaceObjects;
 
