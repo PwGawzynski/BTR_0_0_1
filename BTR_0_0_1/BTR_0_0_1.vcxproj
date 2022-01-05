@@ -153,23 +153,29 @@
   <ItemGroup>
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="Lost.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="MiniGame1.h" />
+    <ClInclude Include="MiniGame2.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="States.h" />
     <ClInclude Include="TexturesContainer.h" />
+    <ClInclude Include="Win.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BTR.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Lost.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="MiniGame1.cpp" />
+    <ClCompile Include="MiniGame2.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="States.cpp" />
     <ClCompile Include="TexturesContainer.cpp" />
+    <ClCompile Include="Win.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -51,6 +51,19 @@ void TexturesContainer::updateCTR(int state)
 		j.at("MiniGame1Paths").get_to(this->paths);
 		this->imagesEnd = j.at("MiniGame1Elements");
 		break;
+	case 4:
+		// HERE GOES ALL ABOUT MINIGAME 1 PATHS 
+		j.at("MiniGame2Paths").get_to(this->paths);
+		this->imagesEnd = j.at("MiniGame2Elements");
+		break;
+	case 5:
+		j.at("WIN").get_to(this->paths);
+		this->imagesEnd = j.at("WINElements");
+		break;
+	case 6:
+		j.at("LOST").get_to(this->paths);
+		this->imagesEnd = j.at("LOSTElements");
+		break;
 	default:
 		break;
 	}

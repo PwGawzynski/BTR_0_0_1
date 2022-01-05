@@ -2,9 +2,12 @@
 //#include "MenuState.h"
 #include "GameState.h"
 #include "MiniGame1.h"
+#include "MiniGame2.h"
+#include "Win.h"
+#include "Lost.h"
 
 class Engine
-	:protected MenuState, protected GameState, protected MiniGame1
+	:protected MenuState, protected GameState, protected MiniGame1, protected MiniGame2, protected Win, protected  Lost
 {
 public:/*CONSTRUCTOR DESTRUCTOR*/
 	Engine();

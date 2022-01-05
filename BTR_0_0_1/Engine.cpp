@@ -71,6 +71,25 @@ void Engine::checkClicking()
 			std::cout << "match" << std::endl;
 		
 		// tutaj mozna zrobic do rysowania kabli tylko trzeba zwracac jakis nz z chandle
+		break;
+	case 5:
+		std::cout << "Przegral" << std::endl;
+		this->statesStack.push(new Lost(this->window));
+		break;
+	case 6:
+		std::cout << "wygral" << std::endl;
+		this->statesStack.push(new Win(this->window));
+		break;
+	case 7:
+		// czysczenie do menu
+		while (this->statesStack.size()>1)
+		{
+			this->statesStack.pop();
+			std::cout << "CLEARING STASCK OF STATES" << std::endl;
+		}
+		this->accomplished = 0;
+		this->minigame_number = 0;
+		break;
 	default:
 		break;
 	}
@@ -136,6 +155,12 @@ int Engine::update()
 	{
 		this->statesStack.top()->pop_interface_states();
 		this->accomplished++;
+	}
+	else if (this->accomplished == 2 && this->minigame_number == 3)
+	{
+		this->statesStack.push(new MiniGame2(this->window));
+		this->render();
+		return 0;
 	}
 	this->updateSFMLEvents();
 	

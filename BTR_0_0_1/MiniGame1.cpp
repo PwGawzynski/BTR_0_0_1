@@ -3,7 +3,7 @@
 
 MiniGame1::MiniGame1()
 {
-	std::cout << "CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
+	std::cout << "CONSTRUCTOR OF MINIGAME1 HAS BEEN COLD" << "\n";
 
 }
 
@@ -11,7 +11,7 @@ MiniGame1::MiniGame1(sf::RenderWindow* target)
 // map 6 bo w mapobject6 w json damy od kabli 
 	:States(3), Map(6)
 {
-	std::cout << "OVERLADED CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
+	std::cout << "OVERLADED CONSTRUCTOR OF MINIGAME1 HAS BEEN COLD" << "\n";
 	this->window = target;
 	this->last_clicked_flag = 0;
 	this->miniGame1Counter = 0;
@@ -22,7 +22,7 @@ MiniGame1::MiniGame1(sf::RenderWindow* target)
 
 MiniGame1::~MiniGame1()
 {
-	std::cout << "DECONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
+	std::cout << "DECONSTRUCTOR OF MINIGAME1 HAS BEEN COLD" << "\n";
 }
 
 void MiniGame1::movePlayer(sf::Vector2f delta)
@@ -64,12 +64,7 @@ void MiniGame1::renderSprites()
 
 	
 
-	for (sf::Texture sorce : this->interfaceObjects)
-	{
-		sf::Sprite TS;
-		TS.setTexture(sorce);
-		this->window->draw(TS);
-	}
+	
 }
 
 void MiniGame1::renderSelfStateObject()
@@ -116,11 +111,11 @@ int MiniGame1::handleBTNpresseing()
 							if (i == 8)
 							texture.setFillColor(sf::Color(0, 0, 0));
 							else if (i == 9)
-								texture.setFillColor(sf::Color(0, 255, 0));
+								texture.setFillColor(sf::Color(54, 255, 0));
 							else if (i == 10)
-								texture.setFillColor(sf::Color(255, 0, 0));
+								texture.setFillColor(sf::Color(202, 40, 18));
 							else if (i == 11)
-								texture.setFillColor(sf::Color(0, 0, 255));
+								texture.setFillColor(sf::Color(0, 180, 255));
 						}
 						i++;
 					}

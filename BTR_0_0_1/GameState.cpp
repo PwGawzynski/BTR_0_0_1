@@ -85,6 +85,7 @@ int GameState::update()
 			else if (this->obiectsINFO[shape_nr][8]==2)
 			{
 				std::cout << "ROBERT" << std::endl;
+				return 3;
 			}
 			else if (this->obiectsINFO[shape_nr][8] == 3)
 			{
