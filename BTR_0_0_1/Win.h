@@ -18,7 +18,7 @@ public: // METHODS
     void update_interface(int);
 
 
-protected: // VARIABLES 
+protected: // VARIABLESs
 
 
 protected: // METHODS
