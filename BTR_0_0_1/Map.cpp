@@ -7,7 +7,7 @@ Map::Map(int map_nr)
 	this->mapNO = map_nr;
 	// INFO ABOUT CONSTRUCTOR
 	std::cout << "OVERLOAD CONSTRUCTOR OF MAP CLASS HAS BEEN COLD" << std::endl;
-
+	this->miniGame1Counter_map = 0;
 	this->updateMap();
 	
 }
@@ -60,10 +60,12 @@ void Map::updateMap()
 
 void Map::updateInterface()
 {
-	std::ifstream i("config/assetsConfig.json");
-	json j = j.parse(i);
-	j.at("InterfaceObiectsInfo").get_to(this->InterfaceObiectsINFO);
-
+	std::cout << this->miniGame1Counter_map << "UPinTER" << std::endl;
+	if (this->miniGame1Counter_map == 0) {
+		std::ifstream i("config/assetsConfig.json");
+		json j = j.parse(i);
+		j.at("InterfaceObiectsInfo").get_to(this->InterfaceObiectsINFO);
+	}
 	for(std::string path : this->InterfaceObiectsINFO)
 	{
 		sf::Texture tmp;
@@ -74,9 +76,11 @@ void Map::updateInterface()
 
 void Map::updateEntity()
 {
-	std::ifstream i("config/assetsConfig.json");
-	json j = j.parse(i);
-	j.at("InterfaceObiectsInfo").get_to(this->InterfaceObiectsINFO);
+	
+		std::ifstream i("config/assetsConfig.json");
+		json j = j.parse(i);
+		j.at("InterfaceObiectsInfo").get_to(this->InterfaceObiectsINFO);
+	
 
 	for (std::string path : this->InterfaceObiectsINFO)
 	{

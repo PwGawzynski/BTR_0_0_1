@@ -13,6 +13,7 @@ protected:
 	void updateEntity();
 public:
 	std::vector<std::string> InterfaceObiectsINFO;
+	int miniGame1Counter_map;
 protected:
 	std::vector<std::vector<int>> obiectsINFO;
 	
@@ -22,6 +23,7 @@ protected:
 	std::vector<std::vector<int>> objectInfoArr2I;
 
 	int mapNO;
+	
 };
 
 

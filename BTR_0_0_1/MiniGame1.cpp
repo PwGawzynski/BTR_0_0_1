@@ -34,6 +34,8 @@ void MiniGame1::movePlayer(sf::Vector2f delta)
 
 void MiniGame1::update_interface(int a)
 {
+	this->miniGame1Counter_map++;
+	std::cout << this->miniGame1Counter_map << "map" << std::endl;
 	this->InterfaceObiectsINFO.push_back("assets/interface1.PNG");
 }
 
@@ -133,12 +135,8 @@ void MiniGame1::renderSprites()
 
 void MiniGame1::renderSelfStateObject()
 {
-	if(this->miniGame1Counter == 0)
-	{
 		this->updateInterface();
 		std::cout << "change" << std::endl;
-
-	}
 }
 
 void MiniGame1::createBTNs()

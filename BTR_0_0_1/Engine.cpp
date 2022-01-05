@@ -62,6 +62,7 @@ void Engine::checkClicking()
 			this->statesStack.top()->miniGame1Counter++;
 			// tu sprawdzenie czy miniGameCounter == ilosc kabli i jesli tak to zdjecie minigame z stosu.
 			this->update_interface(1);
+			this->statesStack.top()->renderSelfStateObject();
 			std::cout << "match" << std::endl;
 		}
 		// tutaj mozna zrobic do rysowania kabli tylko trzeba zwracac jakis nz z chandle
