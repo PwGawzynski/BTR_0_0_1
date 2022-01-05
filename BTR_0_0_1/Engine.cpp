@@ -61,7 +61,7 @@ void Engine::checkClicking()
 			this->statesStack.top()->last_clicked_flag = 0;
 			this->statesStack.top()->miniGame1Counter++;
 			// tu sprawdzenie czy miniGameCounter == ilosc kabli i jesli tak to zdjecie minigame z stosu.
-			this->update_interface(1);
+			this->statesStack.pop();
 			this->statesStack.top()->renderSelfStateObject();
 			std::cout << "match" << std::endl;
 		}

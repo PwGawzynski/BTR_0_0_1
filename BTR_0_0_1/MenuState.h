@@ -24,6 +24,7 @@ protected:/*METHODS*/
 	void updateDT() override;
 
 
+
 private:/*VARIABLES*/
 	sf::RectangleShape playBTN;
 	sf::RectangleShape exitBTN;

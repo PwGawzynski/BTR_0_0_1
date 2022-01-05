@@ -36,7 +36,7 @@ void MiniGame1::update_interface(int a)
 {
 	this->miniGame1Counter_map++;
 	std::cout << this->miniGame1Counter_map << "map" << std::endl;
-	this->InterfaceObiectsINFO.push_back("assets/interface1.PNG");
+	this->InterfaceObiectsINFO.emplace_back("assets/interface1.PNG");
 }
 
 int MiniGame1::update()

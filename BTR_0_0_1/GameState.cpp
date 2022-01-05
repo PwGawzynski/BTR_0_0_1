@@ -165,3 +165,10 @@ void GameState::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();
 }
+
+void GameState::updateInterface()
+{
+	this->pop_interface();
+}
+
+
