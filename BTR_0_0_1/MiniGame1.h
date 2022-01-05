@@ -29,6 +29,7 @@ protected: // METHODS
     void createBTNs() override;
     void updateMouse() override;
     int handleBTNpresseing() override;
+    void pop_interface_states() override;
 private: // VARIABLES
     sf::RenderWindow* window;
    

@@ -10,7 +10,7 @@ public://CONSTRUCTOR AND DESTRUCTOR
     GameState(sf::RenderWindow* target);
     ~GameState() override;
     void updateDT();
-    
+    void pop_interface_states() override;
 public: // VARIABLES
     void movePlayer(sf::Vector2f delta);
 

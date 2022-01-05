@@ -11,7 +11,7 @@
     "assets/map5.jpg",
     "assets/map6.jpg"
   ],
-  "InterfaceObiectsInfo": [ "assets/interface.PNG" ],
+  "InterfaceObiectsInfo": [ "assets/interface.PNG", "assets/interface1.PNG" ],
   "mapObjects0": [
     [ 100, 0, 1, 1080, 0, 100, 23, 100, 0 ],
 

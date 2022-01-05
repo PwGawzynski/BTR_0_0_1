@@ -194,6 +194,10 @@ int MiniGame1::handleBTNpresseing()
 	return -1;
 }
 
+void MiniGame1::pop_interface_states()
+{
+}
+
 void MiniGame1::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();

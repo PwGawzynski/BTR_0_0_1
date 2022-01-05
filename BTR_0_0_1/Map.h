@@ -11,6 +11,7 @@ protected:
 	void updateMap();
 	void updateInterface();
 	void updateEntity();
+	void pop_interface_map();
 public:
 	std::vector<std::string> InterfaceObiectsINFO;
 	int miniGame1Counter_map;

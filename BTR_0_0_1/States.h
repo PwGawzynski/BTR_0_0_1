@@ -29,6 +29,7 @@ public:/*METHODS*/
 	virtual int handleBTNpresseing() = 0;
 	virtual void movePlayer(sf::Vector2f delta) = 0;
 	virtual void updateDT() = 0;
+	virtual void pop_interface_states() = 0;
 public:/*VARIABLES*/
 	int last_clicked_flag;
 	int miniGame1Counter;

@@ -22,7 +22,7 @@ protected:/*METHODS*/
 	int handleBTNpresseing() override;
 	void movePlayer(sf::Vector2f delta) override;
 	void updateDT() override;
-
+	void pop_interface_states() override;
 
 private:/*VARIABLES*/
 	sf::RectangleShape playBTN;

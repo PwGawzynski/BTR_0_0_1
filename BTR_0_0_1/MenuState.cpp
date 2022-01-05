@@ -84,3 +84,7 @@ void MenuState::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();
 }
+
+void MenuState::pop_interface_states()
+{
+}

@@ -89,3 +89,10 @@ void Map::updateEntity()
 		this->interfaceObjects.push_back(tmp);
 	}
 }
+
+void Map::pop_interface_map()
+{
+	this->InterfaceObiectsINFO.pop_back();
+	this->interfaceObjects.pop_back();
+	this->miniGame1Counter_map++;
+}
