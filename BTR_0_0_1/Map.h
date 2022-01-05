@@ -15,6 +15,7 @@ protected:
 public:
 	std::vector<std::string> InterfaceObiectsINFO;
 	int miniGame1Counter_map;
+	void pop_interface();
 protected:
 	std::vector<std::vector<int>> obiectsINFO;
 	

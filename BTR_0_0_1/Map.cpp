@@ -65,6 +65,7 @@ void Map::updateInterface()
 		std::ifstream i("config/assetsConfig.json");
 		json j = j.parse(i);
 		j.at("InterfaceObiectsInfo").get_to(this->InterfaceObiectsINFO);
+		this->miniGame1Counter_map++;
 	}
 	for(std::string path : this->InterfaceObiectsINFO)
 	{
