@@ -157,7 +157,6 @@ int MiniGame1::handleBTNpresseing()
 		// jak ma -1 to mozna klikac
 		if(this->obiectsINFO[ctr][8] == 10)
 		{
-			std::cout << "jest -1" << ctr << std::endl;
 			if (shape.getGlobalBounds().contains(this->mousePositionView))
 			{
 				std::cout << "shape click" << std::endl;
@@ -183,7 +182,7 @@ int MiniGame1::handleBTNpresseing()
 					std::cout << "CLICK : " << this->last_clicked_flag << std::endl;
 					//tu tworzenie kabli i push do listy z obiektami do rysowania do koloru mozna sie dobrac przez object info
 
-					return this->last_clicked_flag;
+					return 4;
 				}
 				
 			}

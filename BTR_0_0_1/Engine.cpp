@@ -56,16 +56,17 @@ void Engine::checkClicking()
 		break;
 	case 4:
 		std::cout << "CLICK ON SHAPE MINIGAME_KOMP" << std::endl;
-		if (val_ret == this->statesStack.top()->last_clicked_flag)
-		{
 			this->statesStack.top()->last_clicked_flag = 0;
 			this->statesStack.top()->miniGame1Counter++;
 			// tu sprawdzenie czy miniGameCounter == ilosc kabli i jesli tak to zdjecie minigame z stosu.
-			this->statesStack.pop();
-			this->statesStack.top()->pop_interface_states();
+			if (this->statesStack.top()->miniGame1Counter == 4)
+			{
+				this->statesStack.pop();
+				this->statesStack.top()->pop_interface_states();
+			}
 			this->statesStack.top()->renderSelfStateObject();
 			std::cout << "match" << std::endl;
-		}
+		
 		// tutaj mozna zrobic do rysowania kabli tylko trzeba zwracac jakis nz z chandle
 	default:
 		break;
