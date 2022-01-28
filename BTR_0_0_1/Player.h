@@ -1,5 +1,9 @@
 #pragma once
 #include "Map.h"
+/**
+ * \class Player
+ * \brief Klasa bazowa gracza
+ */
 class Player
 {
 public:

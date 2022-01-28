@@ -1,13 +1,16 @@
 #include "GameState.h"
 
 
-
+/**
+ * \brief Konstruktor bez parametow
+ */
 GameState::GameState()
 {
 	std::cout << "CONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
-
 }
-
+/**
+ * \brief Konstruktor z parametrami
+ */
 GameState::GameState(sf::RenderWindow* target)
 	:States(2), Map(0)
 {
@@ -17,19 +20,26 @@ GameState::GameState(sf::RenderWindow* target)
 	this->renderSelfStateObject();
 	
 }
-
+/**
+ * \brief Dekonstruktor GameState
+ */
 GameState::~GameState()
 {
 	std::cout << "DECONSTRUCTOR OF GAMESTATE HAS BEEN COLD" << "\n";
 }
 
+/**
+ * \brief Metoda obslugujaca ruch gracza
+ */
 void GameState::movePlayer(sf::Vector2f delta)
 {
 	this->playerSprite.move(delta);
 	this->nextFrame();
 }
 
-
+/**
+ * \brief Metoda wykrywajaca wcisniecie klawiszy sluzacych do poruszania sie oraz odpowiednio na nie reaguje
+ */
 int GameState::update()
 {
 	/* GET NEXT MOVE OF PLAYER */
@@ -111,13 +121,17 @@ int GameState::update()
 	this->movePlayer(movement);
 	return 0;
 }
-
+/**
+ * \brief Nadpisuje metode z klasy abstrakcyjnej sluzacej do renderowania
+ */
 void GameState::render()
 {
 	
 	this->renderSprites();
 }
-
+/**
+ * \brief Nadpisuje metode z klasy abstrakcyjnej sluzacej do renderowania tekstur
+ */
 void GameState::renderSprites()
 {
 	for (sf::Texture sorce : this->textures) {
@@ -141,7 +155,9 @@ void GameState::renderSprites()
 		this->window->draw(TS);
 	}
 }
-
+/**
+ * \brief Metoda renderuje szczegolne obiekty dla klasy SelfState
+ */
 void GameState::renderSelfStateObject()
 {
 	this->updateInterface();
@@ -151,24 +167,33 @@ void GameState::createBTNs()
 {
 }
 
+/**
+ * \brief Metoda wykrywa pozycji myszki
+ */
 void GameState::updateMouse()
 {
 	this->mousePositionWindow = sf::Mouse::getPosition(*this->window);
 	this->mousePositionView = this->window->mapPixelToCoords(this->mousePositionWindow);
 }
-
+/**
+ * \brief Metoda wykrywa obiekt klikalny
+ */
 int GameState::handleBTNpresseing()
 {
 	for (sf::RectangleShape shape : this->mapObjects) {
 		if (shape.getGlobalBounds().contains(this->mousePositionView)) return 3;
 	}
 }
-
+/**
+ * \brief Metoda aktualizujaca Data Time
+ */
 void GameState::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();
 }
-
+/**
+ * \brief Metoda odpowiedzialna aktualizacje interfejsu uzytkownika
+ */
 void GameState::pop_interface_states()
 {
 	this->pop_interface_map();

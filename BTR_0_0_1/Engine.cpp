@@ -1,5 +1,8 @@
-#include "Engine.h"
+#include "Engine.h" 
 
+/**
+ * \brief Konstruktor klasy glownej Engine
+ */
 Engine::Engine()
 {
 	this->minigame_number = 0;
@@ -10,23 +13,34 @@ Engine::Engine()
 
 }
 
-
+/**
+ * \brief Dekonstruktor klasy glownej Engine
+ */
 Engine::~Engine()
 {
 	delete this->window;
 }
 
+/**
+ * \brief Metoda inicjalizujaca okno glowne
+ */
 void Engine::initWindow()
 {
 	this->video = sf::VideoMode(1920, 1080);
 	this->window = new sf::RenderWindow(this->video, "BEAT THE ROBRCIK");
 }
 
+/**
+ * \brief Metoda inicjalizujaca stos do przechowywania obiektów klass
+ */
 void Engine::initStack()
 {
 	this->statesStack.push(new MenuState(this->window));
 }
 
+/**
+ * \brief Metoda do renderowania inkonki na pasku informacyjnym programu
+ */
 void Engine::renderIcon()
 {
 	sf::Image sorce;
@@ -34,6 +48,9 @@ void Engine::renderIcon()
 	this->window->setIcon(32, 32, sorce.getPixelsPtr());
 }
 
+/**
+ * \brief Metoda obslugujaca zdarzenie klikniecia 
+ */
 void Engine::checkClicking()
 {
 	int val_ret = this->statesStack.top()->handleBTNpresseing();
@@ -94,7 +111,9 @@ void Engine::checkClicking()
 		break;
 	}
 }
-
+/**
+ * \brief Metoda obslugujaca wszelkiego typu zdarzenia w grze
+ */
 void Engine::updateSFMLEvents()
 {
 	while (this->window->pollEvent(this->ev) && !this->statesStack.empty())
@@ -119,29 +138,16 @@ void Engine::updateSFMLEvents()
 			this->checkClicking();
 			break;
 		case sf::Event::KeyPressed:
-			/*if (this->ev.key.code == sf::Keyboard::Right)
-			{
-				this->statesStack.top()->movePlayer(sf::Vector2f(10.f, 0.f));
-			}
-			else if (this->ev.key.code == sf::Keyboard::Left)
-			{
-				this->statesStack.top()->movePlayer(sf::Vector2f(-10.f, 0.f));
-			}
-			else if (this->ev.key.code == sf::Keyboard::Down)
-			{
-				this->statesStack.top()->movePlayer(sf::Vector2f(0.f, -10.f));
-			}
-			else if (this->ev.key.code == sf::Keyboard::Up)
-			{
-				this->statesStack.top()->movePlayer(sf::Vector2f(0.f, 10.f));
-			}*/
+			
 		break;
 		default:
 			break;
 		}
 	}
 }
-
+/**
+ * \brief Metoda sluzaca do uruchamiania minigier
+ */
 int Engine::update()
 {
 	// tu zmienianie minigier
@@ -165,14 +171,18 @@ int Engine::update()
 	this->updateSFMLEvents();
 	
 }
-
+/**
+ * \brief Metoda wszelkiego rodzaju elementy 
+ */
 void Engine::render()
 {
 	this->window->clear();
 	this->statesStack.top()->render();
 	this->window->display();
 }
-
+/**
+ * \brief Metoda uruchamia silnik gry i podtrzymuje dzialanie gry
+ */
 void Engine::run()
 {
 	while (this->window->isOpen() && !this->statesStack.empty())

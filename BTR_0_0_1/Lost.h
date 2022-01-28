@@ -1,6 +1,10 @@
 #pragma once
 #include "Map.h"
 #include "Player.h"
+/**
+ * \class Lost
+ * \brief Klasa bazowa interfejsu w momencie przegrania
+ */
 class Lost :
     protected States, protected Map, protected Player
 {

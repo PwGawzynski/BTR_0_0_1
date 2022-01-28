@@ -1,12 +1,16 @@
 #include "MiniGame1.h"
 #include "GameState.h"
-
+/**
+ * \brief Konstruktor Minigry1
+ */
 MiniGame1::MiniGame1()
 {
 	std::cout << "CONSTRUCTOR OF MINIGAME1 HAS BEEN COLD" << "\n";
 
 }
-
+/**
+ * \brief Konstruktor Minigry1 z parametrami
+ */
 MiniGame1::MiniGame1(sf::RenderWindow* target)
 // map 6 bo w mapobject6 w json damy od kabli 
 	:States(3), Map(6)
@@ -19,19 +23,25 @@ MiniGame1::MiniGame1(sf::RenderWindow* target)
 	this->renderSelfStateObject();
 
 }
-
+/**
+ * \brief Dekonstruktor Minigry1 
+ */
 MiniGame1::~MiniGame1()
 {
 	std::cout << "DECONSTRUCTOR OF MINIGAME1 HAS BEEN COLD" << "\n";
 }
-
+/**
+ * \brief Przesuwanie gracza
+ */
 void MiniGame1::movePlayer(sf::Vector2f delta)
 {
 	this->playerSprite.move(delta);
 	this->nextFrame();
 }
 
-
+/**
+ * \brief Aktualizacja interfejsu uzytkownika
+ */
 void MiniGame1::update_interface(int a)
 {
 	this->miniGame1Counter_map++;
@@ -49,7 +59,9 @@ void MiniGame1::render()
 {
 	this->renderSprites();
 }
-
+/**
+ * \brief Renderuje tekstury wlasne 
+ */
 void MiniGame1::renderSprites()
 {
 	for (sf::Texture sorce : this->textures) {
@@ -66,7 +78,9 @@ void MiniGame1::renderSprites()
 
 	
 }
-
+/**
+ * \brief Renderuje obiekty wlasne
+ */
 void MiniGame1::renderSelfStateObject()
 {
 		this->updateInterface();
@@ -76,13 +90,17 @@ void MiniGame1::renderSelfStateObject()
 void MiniGame1::createBTNs()
 {
 }
-
+/**
+ * \brief Aktualizacja myszki
+ */
 void MiniGame1::updateMouse()
 {
 	this->mousePositionWindow = sf::Mouse::getPosition(*this->window);
 	this->mousePositionView = this->window->mapPixelToCoords(this->mousePositionWindow);
 }
-
+/**
+ * \brief Wykrywanie klikniecia
+ */
 int MiniGame1::handleBTNpresseing()
 {
 	int ctr = 0;
@@ -138,7 +156,9 @@ int MiniGame1::handleBTNpresseing()
 void MiniGame1::pop_interface_states()
 {
 }
-
+/**
+ * \brief Aktualizacja Data Time
+ */
 void MiniGame1::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();

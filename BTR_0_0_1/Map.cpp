@@ -1,7 +1,9 @@
 #include "Map.h"
 
 using json = nlohmann::json;
-
+/**
+ * \brief Konstruktor klasy map z parametrami
+ */
 Map::Map(int map_nr)
 {
 	this->mapNO = map_nr;
@@ -9,19 +11,24 @@ Map::Map(int map_nr)
 	std::cout << "OVERLOAD CONSTRUCTOR OF MAP CLASS HAS BEEN COLD" << std::endl;
 	this->miniGame1Counter_map = 0;
 	this->updateMap();
-	
 }
-
+/**
+ * \brief Konstruktor klasy map 
+ */
 Map::Map()
 {
 	std::cout << "DEFAULT CONSTRUCTOR OF MAP CLASS HAS BEEN COLD" << std::endl;
 
 }
-
+/**
+ * \brief Dektonstruktor
+ */
 Map::~Map()
 {
 }
-
+/**
+ * \brief Metoda do zmiany grafiki bazowej w grze
+ */
 void Map::updateMap()
 {
 	std::ifstream i("config/assetsConfig.json");
@@ -53,11 +60,13 @@ void Map::updateMap()
 		sf::RectangleShape tmpShape;
 		tmpShape.setPosition(sf::Vector2f(tab[0], tab[1]));
 		tmpShape.setSize(sf::Vector2f(tab[2], tab[3]));
-		tmpShape.setFillColor(sf::Color(tab[5], tab[6], tab[7], 100)); // ostatnia wartosc opacity 
+		tmpShape.setFillColor(sf::Color(tab[5], tab[6], tab[7], 0)); // ostatnia wartosc opacity 
 		this->mapObjects.push_back(tmpShape);
 	}
 }
-
+/**
+ * \brief Renderowanie wlasnych obiektow klasy map
+ */
 void Map::updateInterface()
 {
 	std::cout << this->miniGame1Counter_map << "UPinTER" << std::endl;
@@ -74,7 +83,9 @@ void Map::updateInterface()
 		this->interfaceObjects.push_back(tmp);
 	}
 }
-
+/**
+ * \brief Renderowanie NPC
+ */
 void Map::updateEntity()
 {
 	
@@ -90,7 +101,9 @@ void Map::updateEntity()
 		this->interfaceObjects.push_back(tmp);
 	}
 }
-
+/**
+ * \brief Powrót do poprzedniej grafiki bazowej
+ */
 void Map::pop_interface_map()
 {
 	this->InterfaceObiectsINFO.pop_back();

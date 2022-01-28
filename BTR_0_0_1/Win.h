@@ -1,6 +1,10 @@
 #pragma once
 #include "Map.h"
 #include "Player.h"
+/**
+ * \class Win
+ * \brief Klasa sluzaca do wyswietlania informacji o wygranej rozgrywce 
+ */
 class Win :
     protected States, protected Map, protected Player
 {

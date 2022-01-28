@@ -1,6 +1,9 @@
 #pragma once
 #include "MenuState.h"
-
+/**
+ * \class Map
+ * \brief Klasa wszystkich grafik bazowych tlo
+ */
 class Map
 {
 protected:

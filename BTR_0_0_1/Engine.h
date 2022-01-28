@@ -5,7 +5,10 @@
 #include "MiniGame2.h"
 #include "Win.h"
 #include "Lost.h"
-
+/**
+ * \class Engine
+ * \brief Glowna klasa gry
+ */
 class Engine
 	:protected MenuState, protected GameState, protected MiniGame1, protected MiniGame2, protected Win, protected  Lost
 {

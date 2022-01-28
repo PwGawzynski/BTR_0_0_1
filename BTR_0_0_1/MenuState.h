@@ -1,6 +1,9 @@
 #pragma once
 #include "States.h"
-
+/**
+ * \class MenuState
+ * \brief Klasa bazowa menu 
+ */
 class MenuState
 	:public States
 {

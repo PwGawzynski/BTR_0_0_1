@@ -1,7 +1,10 @@
 #pragma once
 #include "Map.h"
 #include "Player.h"
-
+/**
+ * \class GameState
+ * \brief Klasa bazowa glownej rozgrywki
+ */
 class GameState :
     protected States, protected Map, protected Player
 {

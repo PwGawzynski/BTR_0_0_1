@@ -1,5 +1,7 @@
 #include "Player.h"
-
+/**
+ * \brief Konstruktor klasy player
+ */
 Player::Player()
 {
 	std::cout << "PLAYER DEFAULT CONSTRUCTOR(ONLY ONE) HAS BEEN COLD" << std::endl;
@@ -29,11 +31,16 @@ Player::Player()
 	this->playerSprite.setPosition(sf::Vector2f(500.f, 500.f));
 
 }
+/**
+ * \brief Dekonstruktor player
+ */
 Player::~Player()
 {
 
 }
-
+/**
+ * \brief Metoda odpowiadajaca za poszczegolne klatki animacji playera
+ */
 void Player::nextFrame()
 {
 	if (this->framecuter == 20)

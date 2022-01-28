@@ -1,5 +1,9 @@
 #pragma once
 #include "TexturesContainer.h"
+/**
+ * \class States
+ * \brief Klasa abstrakcyjna stanow po ktorej dziedzicza klasy gry
+ */
 class States
 	:protected TexturesContainer
 {

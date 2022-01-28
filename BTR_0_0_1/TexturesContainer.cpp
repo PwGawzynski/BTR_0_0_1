@@ -1,12 +1,16 @@
 #include "TexturesContainer.h"
 
 using json = nlohmann::json;
-
+/**
+ * \brief Konstruktor klasy tekstur
+ */
 TexturesContainer::TexturesContainer()
 {
 	std::cout << "DEFOULT CONSTRUCTOR TEXTURECONTAINER USED" << std::endl;
 }
-
+/**
+ * \brief Konstruktor klasy tekstur z parametrami
+ */
 TexturesContainer::TexturesContainer(int state)
 {
 	this->imgStart = 0;
@@ -18,7 +22,9 @@ TexturesContainer::TexturesContainer(int state)
 
 	this->renderStateNO();
 }
-
+/**
+ * \brief Metoda odpowiadajaca za przelaczanie stanow 
+ */
 void TexturesContainer::renderStateNO()
 {
 		sf::Texture tmp;
@@ -26,12 +32,16 @@ void TexturesContainer::renderStateNO()
 		this->textures.push_back(tmp);
 
 }
-
+/**
+ * \brief Dekonstruktor klasy tekstur
+ */
 TexturesContainer::~TexturesContainer()
 {
 	std::cout << "TextureContainer Deconstructor is called" << "\n";
 }
-
+/**
+ * \brief Metoda odpowiadajaca za pobieranie odpowiednich informacji z pliku json
+ */
 void TexturesContainer::updateCTR(int state)
 {
 	std::ifstream i("config/assetsConfig.json");

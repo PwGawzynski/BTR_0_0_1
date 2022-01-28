@@ -1,52 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Engine">
-    <Position X="9" Y="7" Width="1.5" />
+    <Position X="13.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AwAAAgBAAAQAAgACAAAAAAgAAAAAEAAIBQAACAAUAAA=</HashCode>
+      <HashCode>AwAAAgBAAAQAAgACAAAAAAhAAAAAEAAIBQAACAAUQAA=</HashCode>
       <FileName>Engine.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameState">
-    <Position X="2.25" Y="6.25" Width="1.5" />
+    <Position X="21.5" Y="12.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAgAAAAAAAAAAIAhBAAAIAQAAAAAUIAA=</HashCode>
+      <HashCode>AAAAAAIAAAAEAgAAACAAAAAAIAhBAABIAAAAAAAUIAA=</HashCode>
       <FileName>GameState.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Map">
-    <Position X="0.5" Y="1.25" Width="1.5" />
+  <Class Name="Lost">
+    <Position X="24.75" Y="13.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAAIEAAAAAA=</HashCode>
+      <HashCode>AAAAAAKIAAAEAgAAgCAAAAAAIABBAABIAAAAAAAUAAA=</HashCode>
+      <FileName>Lost.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Map">
+    <Position X="13.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAARgQABAAAAAAEQAAAAAAAAAARAABAAAIEAAAAAA=</HashCode>
       <FileName>Map.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MenuState">
-    <Position X="6.25" Y="5.25" Width="1.5" />
+    <Position X="30.25" Y="13" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAIAAAAAAgAAAgAAAAAAIABBCAAAgAAAAAAUAAA=</HashCode>
+      <HashCode>AAABAAIAAAAEAgAAAiAAAAAAIABBCABAgAAAAAAUAAA=</HashCode>
       <FileName>MenuState.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="States">
-    <Position X="4" Y="1.25" Width="1.5" />
+  <Class Name="MiniGame1">
+    <Position X="27.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAgAAIAAQAAAgAAAAAIAAAAIABBAAAIAAAADAAUAAA=</HashCode>
+      <HashCode>AAAAAAIIAAAEAgCAACAAAAAAIABBQABIAAAAAAAUAAA=</HashCode>
+      <FileName>MiniGame1.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiniGame2">
+    <Position X="24.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIIAAAEAgBAACAAAAAAIABBQABIAAAAAAAUAAA=</HashCode>
+      <FileName>MiniGame2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="27.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIgAAAAAAAAAAQAAAAEQAAAACCAAAAAAAAQAAABA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="States">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAIAAQAEAgAAECAIAAAAIABBAABIAAQEDAAUAAA=</HashCode>
       <FileName>States.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TexturesContainer">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="16.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAUAAAAAAAAAAAAAEACAAAAAIAAAAAAIQAAA=</HashCode>
+      <HashCode>AAAAAAAAAUAAAACAAAAAAAAEACAAAAAIAAAAAAIQIAA=</HashCode>
       <FileName>TexturesContainer.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Player">
-    <Position X="9.25" Y="4.25" Width="1.5" />
+  <Class Name="Win">
+    <Position X="21.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAQAAABA=</HashCode>
-      <FileName>Player.h</FileName>
+      <HashCode>AAAAAAIIAgAEAgAAAGAAAAAAIABBAABIAAAAAAAUAAA=</HashCode>
+      <FileName>Win.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

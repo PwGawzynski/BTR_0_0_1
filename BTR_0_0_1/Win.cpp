@@ -1,13 +1,17 @@
 #include "Win.h"
 #include "MiniGame2.h"
 #include "GameState.h"
-
+/**
+ * \brief Konstruktor Win
+ */
 Win::Win()
 {
 	std::cout << "CONSTRUCTOR OF MINIGAME2 HAS BEEN COLD" << "\n";
 
 }
-
+/**
+ * \brief Konstruktor klasy Win z parametrami
+ */
 Win::Win(sf::RenderWindow* target)
 // map 6 bo w mapobject6 w json damy od kabli 
 	:States(5), Map(8)
@@ -20,19 +24,25 @@ Win::Win(sf::RenderWindow* target)
 	this->renderSelfStateObject();
 
 }
-
+/**
+ * \brief Dekonstruktor klasy Win
+ */
 Win::~Win()
 {
 	std::cout << "DECONSTRUCTOR OF MINIGAME2 HAS BEEN COLD" << "\n";
 }
-
+/**
+ * \brief Metoda przesuwania gracza
+ */
 void Win::movePlayer(sf::Vector2f delta)
 {
 	this->playerSprite.move(delta);
 	this->nextFrame();
 }
 
-
+/**
+ * \brief Metoda aktualizujaca interface 
+ */
 void Win::update_interface(int a)
 {
 	this->miniGame1Counter_map++;
@@ -50,7 +60,9 @@ void Win::render()
 {
 	this->renderSprites();
 }
-
+/**
+ * \brief Metoda renderuje tekstur
+ */
 void Win::renderSprites()
 {
 	for (sf::Texture sorce : this->textures) {
@@ -67,7 +79,9 @@ void Win::renderSprites()
 
 
 }
-
+/**
+ * \brief Metoda renderuje tekstury wlasne
+ */
 void Win::renderSelfStateObject()
 {
 	this->updateInterface();
@@ -77,13 +91,17 @@ void Win::renderSelfStateObject()
 void Win::createBTNs()
 {
 }
-
+/**
+ * \brief Metoda wykrywajaca myszke
+ */
 void Win::updateMouse()
 {
 	this->mousePositionWindow = sf::Mouse::getPosition(*this->window);
 	this->mousePositionView = this->window->mapPixelToCoords(this->mousePositionWindow);
 }
-
+/**
+ * \brief Wykrywanie klikniec na elementy klikalne
+ */
 int Win::handleBTNpresseing()
 {
 	int ctr = 0;
@@ -111,7 +129,9 @@ int Win::handleBTNpresseing()
 void Win::pop_interface_states()
 {
 }
-
+/**
+ * \brief Aktualizacja Date Time
+ */
 void Win::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();

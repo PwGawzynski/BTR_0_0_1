@@ -1,12 +1,16 @@
 #include "Lost.h"
 
-
+/**
+ * \brief Konstruktor klasy Lost
+ */
 Lost::Lost()
 {
 	std::cout << "CONSTRUCTOR OF LOST HAS BEEN COLD" << "\n";
 
 }
-
+/**
+ * \brief Konstruktor klasy Lost z parametrami
+ */
 Lost::Lost(sf::RenderWindow* target)
 // map 6 bo w mapobject6 w json damy od kabli 
 	:States(6), Map(8)
@@ -19,19 +23,26 @@ Lost::Lost(sf::RenderWindow* target)
 	this->renderSelfStateObject();
 
 }
-
+/**
+ * \brief Dekonstruktor klasy Lost
+ */
 Lost::~Lost()
 {
 	std::cout << "DECONSTRUCTOR OF LOST HAS BEEN COLD" << "\n";
 }
 
+/**
+ * \brief Metoda przesuwania gracza
+ */
 void Lost::movePlayer(sf::Vector2f delta)
 {
 	this->playerSprite.move(delta);
 	this->nextFrame();
 }
 
-
+/**
+ * \brief Metoda aktualizujaca interface 
+ */
 void Lost::update_interface(int a)
 {
 	this->miniGame1Counter_map++;
@@ -49,7 +60,9 @@ void Lost::render()
 {
 	this->renderSprites();
 }
-
+/**
+ * \brief Metoda renderuje tekstur
+ */
 void Lost::renderSprites()
 {
 	for (sf::Texture sorce : this->textures) {
@@ -60,13 +73,10 @@ void Lost::renderSprites()
 	for (sf::RectangleShape shape : this->mapObjects) {
 		this->window->draw(shape);
 	}
-
-
-
-
-
 }
-
+/**
+ * \brief Metoda renderuje tekstury wlasne
+ */
 void Lost::renderSelfStateObject()
 {
 	this->updateInterface();
@@ -76,13 +86,17 @@ void Lost::renderSelfStateObject()
 void Lost::createBTNs()
 {
 }
-
+/**
+ * \brief Metoda wykrywajaca myszke
+ */
 void Lost::updateMouse()
 {
 	this->mousePositionWindow = sf::Mouse::getPosition(*this->window);
 	this->mousePositionView = this->window->mapPixelToCoords(this->mousePositionWindow);
 }
-
+/**
+ * \brief Wykrywanie klikniec na elementy klikalne
+ */
 int Lost::handleBTNpresseing()
 {
 	int ctr = 0;
@@ -111,6 +125,9 @@ void Lost::pop_interface_states()
 {
 }
 
+/**
+ * \brief Aktualizacja Date Time
+ */
 void Lost::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();

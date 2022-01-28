@@ -1,20 +1,25 @@
 #include "MenuState.h"
-
+/**
+ * \brief Kontruktor bez parametow klasy menu
+ */
 MenuState::MenuState()
 {
 	std::cout << "DEFOULT CONSTRUCTOR OF MENUSTATE CLASS HAS BEEN COLD" << std::endl;
 }
 
-
+/**
+ * \brief Kontruktor z parametrami klasy menu
+ */
 MenuState::MenuState(sf::RenderWindow* target)
 	:States(1)
 {
 	std::cout << "OVERLADED CONSTRUCTOR OF MENUSTATE HAS BEEN COLD" << "\n";
 	this->window = target;
 	this->createBTNs();
-
 }
-
+/**
+ * \brief Dekonstruktor klasy menu
+ */
 MenuState::~MenuState()
 {
 
@@ -24,13 +29,17 @@ int MenuState::update()
 {
 	return 0;
 }
-
+/**
+ * \brief Renderowanie obiektow
+ */
 void MenuState::render()
 {
 	this->renderSprites();
 	this->renderSelfStateObject();
 }
-
+/**
+ * \brief Renderowanie tekstur
+ */
 void MenuState::renderSprites()
 {
 	for (sf::Texture sorce : this->textures) {
@@ -39,13 +48,17 @@ void MenuState::renderSprites()
 		this->window->draw(TS);
 	}
 }
-
+/**
+ * \brief Renderowanie wlasnych tekstur
+ */
 void MenuState::renderSelfStateObject()
 {
 	this->window->draw(this->playBTN);
 	this->window->draw(this->exitBTN);
 }
-
+/**
+ * \brief Tworzenie tekstur i szablonow dla przyciskow
+ */
 void MenuState::createBTNs()
 {
 	sf::RectangleShape playBtn;
@@ -59,7 +72,9 @@ void MenuState::createBTNs()
 	exitBtn.setFillColor(sf::Color(0, 0, 0, 0));
 	this->exitBTN = exitBtn;
 }
-
+/**
+ * \brief Zczytywanie pozycji myszki
+ */
 void MenuState::updateMouse()
 {
 	this->mousePositionWindow = sf::Mouse::getPosition(*this->window);
@@ -67,7 +82,9 @@ void MenuState::updateMouse()
 }
 
 
-
+/**
+ * \brief Odczytywanie kliknienc
+ */
 int MenuState::handleBTNpresseing()
 {
 	if (this->playBTN.getGlobalBounds().contains(this->mousePositionView))
@@ -79,7 +96,9 @@ int MenuState::handleBTNpresseing()
 void MenuState::movePlayer(sf::Vector2f delta)
 {
 }
-
+/**
+ * \brief Aktualizacja Data Time
+ */
 void MenuState::updateDT()
 {
 	this->dt = this->dtClock.restart().asSeconds();

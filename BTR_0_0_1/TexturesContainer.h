@@ -13,7 +13,10 @@
 #include <fstream>
 
 #include <nlohmann/json.hpp>
-
+/**
+ * \class TexturesContainer
+ * \brief Klasa bazowa sluzaca do tworzenia tekstur gier
+ */
 class TexturesContainer
 {
 public:

@@ -9,9 +9,9 @@
     "assets/map3.jpg",
     "assets/map4.jpg",
     "assets/map5.jpg",
-    "assets/map6.jpg"
+    "assets/map6.jpg" 
   ],
-  "InterfaceObiectsInfo": [ "assets/interface.PNG", "assets/interface1.PNG" ],
+  "InterfaceObiectsInfo": [ "assets/interface3.PNG", "assets/interface.PNG", "assets/interface1.PNG" ],
   "mapObjects0": [
     [ 100, 0, 1, 1080, 0, 100, 23, 100, 0 ],
 
@@ -186,10 +186,12 @@
     [ 945, 781, 53, 28, 7, 100, 23, 100, -1, 4 ]
   ],
   "mapObjects7": [
-    [ 1017, 782, 100, 100, 7, 100, 23, 100, 10, 11 ],
-    [ 1017, 582, 100, 100, 7, 100, 23, 100, 10, 0 ]
+    [ 1000, 809, 232, 70, 7, 100, 23, 100, 10, 0 ],
+    [ 637, 661, 333, 70, 7, 100, 23, 100, 10, 0 ],
+    [ 1000, 653, 329, 80, 7, 100, 23, 100, 10, 0 ],
+    [ 630, 795, 329, 80, 7, 100, 23, 100, 10, 11 ]
   ],
-  "mapObjects8": [ [ 1017, 782, 100, 100, 7, 100, 23, 100, 10, 11 ] ],
+  "mapObjects8": [ [ 1557, 888, 246, 131, 7, 100, 23, 100, 10, 11 ] ],
   "MiniGame1Paths": [ "assets/minigame1.jpg" ],
   "MiniGame2Paths": [ "assets/minigame2.jpg" ],
   "MiniGame1Elements": 1,

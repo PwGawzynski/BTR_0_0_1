@@ -1,6 +1,10 @@
 #pragma once
 #include "Map.h"
 #include "Player.h"
+/**
+ * \class MiniGame2
+ * \brief Klasa bazowa Minigry2
+ */
 class MiniGame2 :
     protected States, protected Map, protected Player
 {
